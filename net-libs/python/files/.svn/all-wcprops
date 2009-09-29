@@ -1,0 +1,11 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/verlihub/!svn/ver/116/overlay/net-libs/python/files
+END
+cpipython.cpp.patch
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svnroot/verlihub/!svn/ver/117/overlay/net-libs/python/files/cpipython.cpp.patch
+END

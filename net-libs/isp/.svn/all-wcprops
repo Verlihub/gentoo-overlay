@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svnroot/verlihub/!svn/ver/114/overlay/net-libs/isp
+END
+metadata.xml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/verlihub/!svn/ver/116/overlay/net-libs/isp/metadata.xml
+END
+Manifest
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svnroot/verlihub/!svn/ver/114/overlay/net-libs/isp/Manifest
+END
+isp-1.1.ebuild
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/verlihub/!svn/ver/114/overlay/net-libs/isp/isp-1.1.ebuild
+END

@@ -1,0 +1,19 @@
+*** src/cpipython.cpp.or 2007-11-23 22:55:15.000000000 +0100
+--- src/cpipython.cpp	2009-06-05 13:53:38.000000000 +0200
+***************
+*** 1307,1313 ****
+  	{
+  		cpiPython::me->server->mC.hub_topic = topic;
+  		string msg;
+! 		cpiPython::me->server->mP.Create_HubName( msg, cpiPython::me->server->mC.hub_name, topic );
+  		cpiPython::me->server->mUserList.SendToAll(msg, eUC_NORMUSER, eUC_MASTER);
+  	}
+  	return cpiPython::lib_pack("s", strdup(cpiPython::me->server->mC.hub_topic.c_str()));
+--- 1307,1313 ----
+  	{
+  		cpiPython::me->server->mC.hub_topic = topic;
+  		string msg;
+! 		cpiPython::me->server->mP.Create_HubName( msg, cpiPython::me->server->mC.hub_name, *string(topic) );
+  		cpiPython::me->server->mUserList.SendToAll(msg, eUC_NORMUSER, eUC_MASTER);
+  	}
+  	return cpiPython::lib_pack("s", strdup(cpiPython::me->server->mC.hub_topic.c_str()));
