@@ -4,7 +4,7 @@
 
 inherit eutils
 
-DESCRIPTION="ISP plugins for Verlihub"
+DESCRIPTION="Python plugin for Verlihub"
 HOMEPAGE="http://www.verlihub-project.org"
 SRC_URI="mirror://sourceforge/verlihub/python.tar.gz"
 LICENSE="GPL-2"
