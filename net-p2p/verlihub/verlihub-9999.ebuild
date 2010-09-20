@@ -4,14 +4,14 @@
 
 inherit git
 
-DESCRIPTION="Verlihub, a linux hub for the p2p program 'direct connect'"
+DESCRIPTION="VerliHub is a Direct Connect protocol server (Hub)"
 HOMEPAGE="http://www.verlihub-project.org"
 SRC_URI=""
 EGIT_REPO_URI="git://verlihub.git.sourceforge.net/gitroot/verlihub/verlihub"
 
 LICENSE="GPL-2"
 SLOT="0"
-KEYWORDS="amd64 x86 x86-fbsd"
+KEYWORDS=""
 IUSE="lua iplog forbid messanger chatroom isp replacer stats python"
 
 DEPEND="dev-libs/libpcre
@@ -35,11 +35,11 @@ src_compile() {
 }
 
 src_install() {
-	make DESTDIR=${D} install || die
+	make DESTDIR="${D}" install || die
 
 	docinto "scripts"
 	dodoc \
-                scripts/vh_runhub.in
+		scripts/vh_runhub.in
 
 	docinto ""
 	dodoc \
@@ -49,33 +49,33 @@ src_install() {
 		INSTALL \
 		NEWS \
 		README \
-		TODO \
+		TODO
 }
 
 pkg_postinst() {
-    echo
-	einfo "You are now ready to use Verlihub into your system."
-	ewarn "Remember that this is a development version of Verlihub"
-	ewarn "and maybe not be stable for running your DC++ hub."
-	ewarn
-	ewarn "Do NOT report bugs to Gentoo's bugzilla"
-	einfo "Please report all bugs to Verlihub forums at http://forums.verlihubproject.org/viewforum.php?f=36"
-	einfo
-	einfo "Verlihub Project Team"
+	echo
+		einfo "You are now ready to use Verlihub into your system."
+		ewarn "Please note that this is a development version of Verlihub not completely"
+		ewarn "finished and maybe not be stable for running your DC++ hub."
+		ewarn
+		ewarn "Do NOT report bugs to Gentoo's bugzilla"
+		einfo "Please report all bugs to Verlihub forums at http://forums.verlihubproject.org/viewforum.php?f=36"
+		einfo
+		einfo "Verlihub Project Team"
 
-    if [[ -f "/etc/verlihub/dbconfig" ]]
-    then
-	einfo "Verlihub is already configured in /etc/verlihub"
-	einfo "You can configure a new hub by typing:"
-	einfo
-	ewarn "emerge --config =${CATEGORY}/${PF}"
-    else
-	ewarn "You MUST configure verlihub before starting it:"
-	ewarn
-	ewarn "emerge --config =${CATEGORY}/${PF}"
-	ewarn
-	ewarn "That way you can [re]configure your verlihub setup"
-    fi
+	if [[ -f "/etc/verlihub/dbconfig" ]]
+	then
+		einfo "Verlihub is already configured in /etc/verlihub"
+		einfo "You can configure a new hub by typing:"
+		einfo
+		ewarn "emerge --config =${CATEGORY}/${PF}"
+	else
+		ewarn "You MUST configure verlihub before starting it:"
+		ewarn
+		ewarn "emerge --config =${CATEGORY}/${PF}"
+		ewarn
+		ewarn "That way you can [re]configure your verlihub setup"
+	fi
 }
 
 pkg_config() {

@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
 <pkgmetadata>
-<herd>net-p2p</herd>
-<maintainer>
-  <email>netcelli@verlihub-project.org</email>
-</maintainer>
+	<herd>no-herd</herd>
+	<maintainer>
+		<email>netcelli@verlihub-project.org</email>
+		<name>Simoncelli Stefano</name>
+	</maintainer>
+	<longdescription lang="en">
+		Verlihub is a Direct Connect protocol server runs on Linux OS written in C++; many features are available: MySQL database, very low use of CPU, RAM and bandwidth, deflood integrated protection, plugins (LUA, Forbidden, IPlog, Messenger, Chatroom, etc.) and MORE, MORE AND MORE. 
+	</longdescription>
+	<use>
+		<flag name='chatroom'>Set up individual chatrooms for users. This would work similarly to OPChat. This is great if you have a multiple-language hub</flag>
+		<flag name='forbid'>Allows you to filter main chat and private messages for forbidden words</flag>
+		<flag name='iplog'>Save log history for IP address or specified nicknames</flag>
+		<flag name='isp'>This plugin allows you to check connection types, nickname prefixes, and minimum shares, among other things</flag>
+		<flag name='lua'>Load scripts written in LUA language</flag>
+		<flag name='messanger'>Sends a message to offline users</flag>
+		<flag name='python'>Allows you to use scripts written with Python</flag>
+		<flag name='replacer'>This plugin replaces given patterns in text. For example if someone types Windows in the main chat, you can have this plugin change it to Winblows</flag>
+		<flag name='stats'>his periodically saves statistics in the database (i.e. users, share, upload, searching, etc.)</flag>
+	</use>
 </pkgmetadata>
