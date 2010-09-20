@@ -20,7 +20,7 @@ S=${WORKDIR}/${PN}
 src_unpack() {
 	unpack "${PN}.tar.gz"
 	cd "${S}"
-	epatch "${FILESDIR}/cpipython.cpp.patch"
+	epatch "${FILESDIR}/cpipython_fixed.cpp.patch"
 }
 
 src_compile() {
