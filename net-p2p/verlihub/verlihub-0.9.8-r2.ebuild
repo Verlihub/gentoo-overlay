@@ -4,7 +4,7 @@
 
 DESCRIPTION="VerliHub is a Direct Connect protocol server (Hub)"
 HOMEPAGE="http://www.verlihub-project.org"
-SRC_URI="mirror://sourceforge/verlihub/${P}.tar.gz"
+SRC_URI="mirror://sourceforge/verlihub/${P}e-r2.tar.gz"
 
 LICENSE="GPL-2"
 SLOT="0"
@@ -26,10 +26,10 @@ PDEPEND="lua? ( net-libs/lua )
 	stats? ( net-libs/stats )
 	python? ( net-libs/python )"
 
-S="${WORKDIR}/${P}"
+S="${WORKDIR}/${P}e-r2"
 
 src_unpack() {
-	unpack "${P}.tar.gz"
+	unpack "${P}e-r2.tar.gz"
 	cd "${S}"
 }
 src_compile() {
