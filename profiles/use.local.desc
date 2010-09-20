@@ -6,7 +6,7 @@
 # contain them.
 
 # Keep it sorted.
-net-p2p/verlihub:chatroom - This will set up individual chatrooms for users. This would work similarly to OPChat. This is great if you have a multiple-language hub
+net-p2p/verlihub:chatroom - Set up individual chatrooms for users. This would work similarly to OPChat. This is great if you have a multiple-language hub
 net-p2p/verlihub:forbid - Allows you to filter main chat and private messages for forbidden words
 net-p2p/verlihub:iplog - Save log history for IP address or specified nicknames
 net-p2p/verlihub:isp - This plugin allows you to check connection types, nickname prefixes, and minimum shares, among other things
@@ -14,4 +14,4 @@ net-p2p/verlihub:lua - Load scripts written in LUA language
 net-p2p/verlihub:messanger - Sends a message to offline users
 net-p2p/verlihub:python - Allows you to use scripts written with Python
 net-p2p/verlihub:replacer - This plugin replaces given patterns in text. For example if someone types Windows in the main chat, you can have this plugin change it to Winblows
-net-p2p/verlihub:stats - This periodically saves statistics in the database (i.e. users, share, upload, searching, etc…)
+net-p2p/verlihub:stats - This periodically saves statistics in the database (i.e. users, share, upload, searching, etc.)
