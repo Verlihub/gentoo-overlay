@@ -58,16 +58,16 @@ src_install() {
 pkg_postinst() {
 	echo
 		einfo "You are now ready to use Verlihub into your system."
-		ewarn "Do NOT report bugs to Gentoo's bugzilla"
+		einfo "Do NOT report bugs to Gentoo's bugzilla"
 		einfo "Please report all bugs to Verlihub forums at http://forums.verlihubproject.org/viewforum.php?f=36"
 		einfo
 		einfo "Verlihub Project Team"
-
+		einfo
 	if [[ -f "/etc/verlihub/dbconfig" ]]
 	then
-		einfo "Verlihub is already configured in /etc/verlihub"
-		einfo "You can configure a new hub by typing:"
-		einfo
+		ewarn "Verlihub is already configured in /etc/verlihub"
+		ewarn "You can configure a new hub by typing:"
+		ewarn
 		ewarn "emerge --config =${CATEGORY}/${PF}"
 	else
 		ewarn "You MUST configure verlihub before starting it:"
