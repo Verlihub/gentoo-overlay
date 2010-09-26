@@ -14,7 +14,7 @@ KEYWORDS="amd64 amd64-fbsd x86 x86-fbsd"
 IUSE=""
 
 DEPEND="net-p2p/verlihub
-	dev-lang/python:2.5"
+	dev-lang/python"
 S=${WORKDIR}/${PN}
 
 src_unpack() {
