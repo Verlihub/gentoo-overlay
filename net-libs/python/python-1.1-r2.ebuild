@@ -2,7 +2,7 @@
 # Distributed under the terms of the GNU General Public License v2
 # $Header: $
 EAPI="1"
-inherit eutils
+inherit eutils autotools
 
 DESCRIPTION="Python plugin for Verlihub"
 HOMEPAGE="http://www.verlihub-project.org"
@@ -14,13 +14,15 @@ KEYWORDS="amd64 amd64-fbsd x86 x86-fbsd"
 IUSE=""
 
 DEPEND="net-p2p/verlihub
-	dev-lang/python"
+	|| ( dev-lang/python:2.4 dev-lang/python:2.5 dev-lang/python:2.6 )"
 S=${WORKDIR}/${PN}
 
 src_unpack() {
 	unpack "${PN}.tar.gz"
 	cd "${S}"
-	epatch "${FILESDIR}/cpipython_fixed.cpp.patch"
+	epatch "${FILESDIR}/cpipython.cpp.patch"
+	epatch "${FILESDIR}/python_2.6.patch"
+	eautoreconf
 }
 
 src_compile() {

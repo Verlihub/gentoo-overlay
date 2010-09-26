@@ -1,0 +1,21 @@
+--- /var/tmp/portage/net-libs/python-1.1/work/python/configure.in	2007-11-06 18:34:12.000000000 +0100
++++ /tmp/configure.in	2010-09-17 10:19:51.986690479 +0200
+@@ -14,14 +14,16 @@
+ 
+ 
+ echo "checking for python headers..." 
++AC_CHECK_HEADERS(python2.6/Python.h, PYTHON_CFLAGS="$PYTHON_CFLAGS -I/usr/include/python2.6 ",[ \ 
+ AC_CHECK_HEADERS(python2.5/Python.h, PYTHON_CFLAGS="$PYTHON_CFLAGS -I/usr/include/python2.5 ",[ \ 
+ AC_CHECK_HEADERS(python2.4/Python.h, PYTHON_CFLAGS="$PYTHON_CFLAGS -I/usr/include/python2.4 ",[ \ 
+-AC_MSG_ERROR([Please install the python library headers (Python.h) version 2.5 (or 2.4) before trying to install python plugin.])])]) 
++AC_MSG_ERROR([Please install the python library headers (Python.h) version 2.6, 2.5 or 2.4 before trying to install python plugin.])])])]) 
+ 
+ echo "checking for python libraries... " 
++AC_CHECK_LIB(python2.6, PyInt_FromLong, [ LIBPYTHON="$LDPYTHONLIBS -lpython2.6" ],[ \ 
+ AC_CHECK_LIB(python2.5, PyInt_FromLong, [ LIBPYTHON="$LDPYTHONLIBS -lpython2.5" ],[ \ 
+ AC_CHECK_LIB(python2.4, PyInt_FromLong, [ LIBPYTHON="$LDPYTHONLIBS -lpython2.4" ], \ 
+-[ AC_MSG_ERROR([[There are problems with your Python library version 2.5.]])])]) 
++[ AC_MSG_ERROR([[There are problems with your Python library version 2.6, 2.5 or 2.4.]])])])])
+ 
+ 
+ AC_SUBST(LIBPYTHON)
