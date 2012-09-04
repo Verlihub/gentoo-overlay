@@ -6,9 +6,6 @@
 		<email>netcelli@verlihub-project.org</email>
 		<name>Simoncelli Stefano</name>
 	</maintainer>
-	<longdescription lang="en">
-		Verlihub is a Direct Connect protocol server runs on Linux OS written in C++; many features are available: MySQL database, very low use of CPU, RAM and bandwidth, deflood integrated protection, plugins (LUA, Forbidden, IPlog, Messenger, Chatroom, etc.) and MORE, MORE AND MORE. 
-	</longdescription>
 	<use>
 		<flag name='chatroom'>Set up individual chatrooms for users. This would work similarly to OPChat. This is great if you have a multiple-language hub</flag>
 		<flag name='forbid'>Allows you to filter main chat and private messages for forbidden words</flag>
