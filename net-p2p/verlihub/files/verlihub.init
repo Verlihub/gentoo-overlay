@@ -1,0 +1,63 @@
+#!/sbin/runscript
+# Copyright 1999-2011 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+
+depend() {
+	need net
+	need mysql
+}
+
+start() {
+	ebegin "Starting verlihub for ${CONFIGDIR}"
+
+	# Check path to config file
+	if [ ! -d ${CONFIGDIR} ]; then
+		eerror "FATAL ERROR: missing configuration directory ${CONFIGDIR}"
+		return 1;
+	fi;
+
+	# Check if dbconfig exists
+	DBCONFIG="$CONFIGDIR/dbconfig"
+	if [ ! -f $DBCONFIG ]; then
+		eerror "Cannot read the configuration file '${DBCONFIG}'"
+		return 1;
+	fi
+
+	PIDFILE="$CONFIGDIR/pid"
+	LOG_FILE="$CONFIGDIR/log"
+	ERROR_FILE="$CONFIGDIR/err"
+
+	# Save old files
+	if [ -f $LOG_FILE ]; then
+		ebegin "Saving backup for log file"
+		mv -f $LOG_FILE "$LOG_FILE.old"
+	fi;
+	if [ -f $ERROR_FILE ]; then
+		ebegin "Saving backup for error file"
+		mv -f $ERROR_FILE "$ERROR_FILE.old"
+	fi;
+
+	# Export MySQL socket
+	MYSQL_HOST=$(grep -E "db_host ?=" ${DBCONFIG} 2> /dev/null | sed -e 's/.*= *//')
+	if [ $MYSQL_HOST == "localhost" ] || [ $MYSQL_HOST == "127.0.0.1" ] || [ "_$MYSQL_HOST" == "_" ]; then
+		if [ -r "/etc/mysql/my.cnf" ]; then
+			SOCKET=$(cat "/etc/mysql/my.cnf" | grep "^socket" | head -n 1 | cut -d"=" -f2| tr -d " ")
+			if [ ! -z $SOCKET ]; then
+				export "MYSQL_UNIX_PORT=$SOCKET"
+			fi
+		fi
+	fi
+
+	# Start the hub
+	start-stop-daemon --start --quiet --background --make-pidfile --pidfile ${PIDFILE} --exec ${VERLIBIN} --user ${PROCESS_OWNER} --stdout ${LOG_FILE} --stderr ${ERROR_FILE} --env VERLIHUB_CFG=${CONFIGDIR} --startas "vh_daemon"
+	eend $?
+}
+
+stop () {
+	ebegin "Stopping verlihub"
+
+	PIDFILE="$CONFIGDIR/pid"
+	# Stop verlihub
+	start-stop-daemon --stop --pidfile ${PIDFILE} --exec ${VERLIBIN}
+	eend $?
+}
